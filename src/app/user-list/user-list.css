@@ -1,0 +1,9 @@
+user-list {
+      padding: 20px;
+    }
+.last-clicked {
+margin-top: 20px;
+padding: 10px;
+background-color: #e3f2fd;
+border-radius: 4px;
+}

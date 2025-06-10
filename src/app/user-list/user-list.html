@@ -1,0 +1,20 @@
+<div class="user-list">
+      <h2>User List</h2>
+      
+      <!-- Pass data TO child components using property binding -->
+      <app-user-card 
+        *ngFor="let user of users; trackBy: trackByUserId"
+        [userName]="user.name"
+        [email]="user.email" 
+        [isActive]="user.isActive"
+        [avatarUrl]="user.avatarUrl"
+        [showActions]="true"
+        (userClicked)="onUserClicked($event)"
+        (statusChanged)="onStatusChanged($event)">
+      </app-user-card>
+      
+      <!-- Show last clicked user -->
+      <div *ngIf="lastClickedUser" class="last-clicked">
+        <p>Last clicked: {{ lastClickedUser }}</p>
+      </div>
+</div>

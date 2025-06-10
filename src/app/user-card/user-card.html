@@ -1,0 +1,25 @@
+<div class="user-card" [class.inactive]="!isActive">
+  <div class="user-info">
+    <img [src]="avatarUrl || 'https://via.placeholder.com/50'" 
+         [alt]="userName" 
+         class="avatar">
+    
+    <div class="details">
+      <h3>{{ userName }}</h3>
+      <p>{{ email }}</p>
+      <span class="status" [class.active]="isActive" [class.inactive]="!isActive">
+        {{ isActive ? 'Active' : 'Inactive' }}
+      </span>
+    </div>
+  </div>
+  
+  <div class="actions" *ngIf="showActions">
+    <button (click)="onUserClick()" class="btn-primary">
+      View Profile
+    </button>
+    <button (click)="onToggleStatus()" 
+            [class]="isActive ? 'btn-danger' : 'btn-success'">
+      {{ isActive ? 'Deactivate' : 'Activate' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="user-profile">
+  <h2>{{ userName }}</h2>
+  <div class="user-details">
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Status:</strong> 
+      <span [class]="isActive ? 'status-active' : 'status-inactive'">
+        {{ getStatusText() }}
+      </span>
+    </p>
+    <p><strong>Joined:</strong> {{ joinDate }}</p>
+  </div>
+  
+  <button (click)="toggleStatus()" [class]="isActive ? 'btn-danger' : 'btn-success'">
+    {{ isActive ? 'Deactivate' : 'Activate' }}
+  </button>
+</div>
