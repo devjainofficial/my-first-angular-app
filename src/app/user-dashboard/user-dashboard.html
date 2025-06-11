@@ -1,0 +1,47 @@
+    <div class="dashboard">
+      <div class="header">
+        <h2>User Dashboard</h2>
+        <div class="stats">
+          <div class="stat">
+            <span class="number">{{ totalUsers }}</span>
+            <span class="label">Total Users</span>
+          </div>
+          <div class="stat">
+            <span class="number">{{ activeUsers }}</span>
+            <span class="label">Active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="user-list">
+          <h3>All Users</h3>
+          <app-user-card 
+            *ngFor="let user of users; trackBy: trackByUserId"
+            [userName]="user.name"
+            [email]="user.email"
+            [isActive]="user.isActive"
+            [avatarUrl]="user.avatarUrl"
+            (userClicked)="onUserSelect(user)"
+            (statusChanged)="onStatusChange(user.id)">
+          </app-user-card>
+        </div>
+
+        <div class="user-details" *ngIf="selectedUser">
+          <h3>Selected User Details</h3>
+          <div class="details-card">
+            <p><strong>Name:</strong> {{ selectedUser.name }}</p>
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+            <p><strong>Department:</strong> {{ selectedUser.department }}</p>
+            <p><strong>Status:</strong> 
+              <span [class]="selectedUser.isActive ? 'active' : 'inactive'">
+                {{ selectedUser.isActive ? 'Active' : 'Inactive' }}
+              </span>
+            </p>
+            <button (click)="clearSelection()" class="btn-secondary">
+              Clear Selection
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>

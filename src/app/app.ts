@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { UserProfileComponent } from './user-profile/user-profile';
-import { UserList } from './user-list/user-list';
+// import { RouterOutlet } from '@angular/router';
+// import { UserProfileComponent } from './user-profile/user-profile';
+// import { UserList } from './user-list/user-list';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard';
 
 @Component({
   selector: 'app-root',
-  imports: [ UserProfileComponent, UserList],
+  imports: [ UserDashboardComponent ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
