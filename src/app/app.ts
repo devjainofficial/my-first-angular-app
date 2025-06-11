@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 // import { UserProfileComponent } from './user-profile/user-profile';
 // import { UserList } from './user-list/user-list';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [ UserDashboardComponent ],
+  imports: [ RouterModule ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
